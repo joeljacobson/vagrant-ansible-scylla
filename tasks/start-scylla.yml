@@ -1,0 +1,5 @@
+- name: starting scylla
+  service: name=scylla-server enabled=yes state=started
+
+- name: starting scylla-jmx
+  service: name=scylla-jmx enabled=yes state=started

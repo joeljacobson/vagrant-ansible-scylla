@@ -1,0 +1,16 @@
+- name: installing scylla-server
+  apt: pkg=scylla-server state=installed force=yes
+  register: scylla-server
+
+- name: installing scylla-jmx
+  apt: pkg=scylla-jmx state=installed force=yes
+  register: scylla-jmx
+
+- name: installing scylla-tools
+  apt: pkg=scylla-tools state=installed force=yes
+
+- name: disable xfs check
+  lineinfile: dest=/etc/default/scylla-server regexp="^SCYLLA_ARGS=" insertafter="^SCYLLA_ARGS=" line=SCYLLA_ARGS="--developer-mode true"
+
+- name: configuring nodes
+  template: src=templates/scylla.yaml dest=/etc/scylla/scylla.yaml

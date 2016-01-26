@@ -1,0 +1,6 @@
+config:
+   cluster_name: 'ScyllaDB Cluster'
+   seeds: '192.168.56.11,192.168.56.12,192.168.56.13'
+   listen_address: 192.168.56.13
+   rpc_address: 192.168.56.13
+   api_address: 192.168.56.13
